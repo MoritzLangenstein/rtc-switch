@@ -128,6 +128,9 @@ module.exports = function(opts) {
     peer.room = room;
     peer.id = data.id;
 
+    // notify the peer of their id
+    peer.emit('data', '/me||' + peer.id);
+
     // send through the announce
     if (room) {
       // add the peer to the room
